@@ -13,5 +13,4 @@ There are plenty of interesting services (XaaS) out there and some offer even fr
     </div>
     <div id="tableContainer"></div>
 
-<script src="script.js"></script>
 
