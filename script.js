@@ -6,7 +6,6 @@ var jsonData = [
 ];
 
 // Create the table dynamically
-var tableContainer = document.getElementById("tableContainer");
 var table = document.createElement("table");
 
 // Create the table header
@@ -44,6 +43,7 @@ createTableBody(jsonData);
 table.appendChild(tbody);
 
 // Append the table to the container
+var tableContainer = document.getElementById("tableContainer");
 tableContainer.appendChild(table);
 
 // Create the column filter options
