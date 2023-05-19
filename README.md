@@ -4,13 +4,13 @@ There are plenty of interesting services (XaaS) out there and some offer even fr
 
 > Students may also checkout [GitHub Student Developer Pack](https://education.github.com/pack) which may even offer better deals.
 
-   <div id="filterContainer">
-      <label for="filterInput">Filter:</label>
-      <input type="text" id="filterInput" />
-      <select id="columnSelect">
-        <option value="">All Columns</option>
-      </select>
-    </div>
-    <div id="tableContainer"></div>
+<div id="filterContainer">
+  <label for="filterInput">Filter:</label>
+  <input type="text" id="filterInput" />
+  <select id="columnSelect">
+    <option value="">All Columns</option>
+  </select>
+</div>
 
+<div id="tableContainer"></div>
 
