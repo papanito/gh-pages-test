@@ -15,12 +15,14 @@ window.onload = function () {
   var headerRow = document.createElement("tr");
   var columns = Object.keys(jsonData[0]);
   columns.forEach(function (column) {
-    var th = document.createElement("th");
-    var filterbox = document.createElement("input");
-    filterbox.id = column;
-    filterbox.type = "text";
-    th.textContent = column;
-    headerRow.appendChild(th);
+    if (column != "url") {
+        var th = document.createElement("th");
+        var filterbox = document.createElement("input");
+        filterbox.id = column;
+        filterbox.type = "text";
+        th.textContent = column;
+        headerRow.appendChild(th);
+    }
   });
   thead.appendChild(headerRow);
   table.appendChild(thead);
