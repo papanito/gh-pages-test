@@ -1,4 +1,6 @@
-import jsonData from "./resources.json"
+var jsonData = fetch('./resources.json')
+    .then((response) => response.json())
+    .then((json));
 // Sample JSON data
 // var jsonData = [
 //   { Name: "John\nAdams", Age: 30, City: "New York" },
