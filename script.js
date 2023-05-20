@@ -44,7 +44,7 @@ table.appendChild(tbody);
 
 // Append the table to the container
 var tableContainer = document.getElementById("tableContainer");
-tableContainer.appendChild(table);
+document.getElementById("tableContainer").appendChild(table);
 
 // Create the column filter options
 var columnSelect = document.getElementById("columnSelect");
