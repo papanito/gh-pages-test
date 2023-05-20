@@ -1,6 +1,6 @@
-var jsonData = fetch('./resources.json')
-    .then((response) => response.json())
-    .then((json));
+var jsonData = fetch("./resources.json")
+  .then((response) => response.json())
+  .then((json) => console.log(json));
 // Sample JSON data
 // var jsonData = [
 //   { Name: "John\nAdams", Age: 30, City: "New York" },
@@ -18,12 +18,12 @@ window.onload = function () {
   var columns = Object.keys(jsonData[0]);
   columns.forEach(function (column) {
     if (column != "url") {
-        var th = document.createElement("th");
-        var filterbox = document.createElement("input");
-        filterbox.id = column;
-        filterbox.type = "text";
-        th.textContent = column;
-        headerRow.appendChild(th);
+      var th = document.createElement("th");
+      var filterbox = document.createElement("input");
+      filterbox.id = column;
+      filterbox.type = "text";
+      th.textContent = column;
+      headerRow.appendChild(th);
     }
   });
   thead.appendChild(headerRow);
