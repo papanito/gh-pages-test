@@ -5,7 +5,7 @@ var jsonData = [
   { Name: "Bob", Age: 35, City: "Paris" },
 ];
 
-jsonData = $.getJSON("resources.json")
+import jsonData from "./resources.json"
 window.onload = function () {
   // Create the table dynamically
   var table = document.createElement("table");
