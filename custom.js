@@ -1,11 +1,11 @@
-// Sample JSON data
-var jsonData = [
-  { Name: "John\nAdams", Age: 30, City: "New York" },
-  { Name: "Jane", Age: 25, City: "London" },
-  { Name: "Bob", Age: 35, City: "Paris" },
-];
-
 import jsonData from "./resources.json"
+// Sample JSON data
+// var jsonData = [
+//   { Name: "John\nAdams", Age: 30, City: "New York" },
+//   { Name: "Jane", Age: 25, City: "London" },
+//   { Name: "Bob", Age: 35, City: "Paris" },
+// ];
+
 window.onload = function () {
   // Create the table dynamically
   var table = document.createElement("table");
