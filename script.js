@@ -4,6 +4,8 @@ var jsonData = [
   { Name: "Jane", Age: 25, City: "London" },
   { Name: "Bob", Age: 35, City: "Paris" },
 ];
+
+jsonData = $.getJSON("resources.json")
 window.onload = function () {
   // Create the table dynamically
   var table = document.createElement("table");
@@ -63,18 +65,18 @@ window.onload = function () {
     selectedColumn = columnSelect.value;
     filterTable();
   });
-
-  function filterTable() {
-    var query = filterInput.value.toLowerCase();
-    var filteredData = jsonData.filter(function (rowData) {
-      if (selectedColumn) {
-        return rowData[selectedColumn].toString().toLowerCase().includes(query);
-      } else {
-        return Object.values(rowData).some(function (value) {
-          return value.toString().toLowerCase().includes(query);
-        });
-      }
-    });
-    createTableBody(filteredData);
-  }
 };
+
+function filterTable() {
+  var query = filterInput.value.toLowerCase();
+  var filteredData = jsonData.filter(function (rowData) {
+    if (selectedColumn) {
+      return rowData[selectedColumn].toString().toLowerCase().includes(query);
+    } else {
+      return Object.values(rowData).some(function (value) {
+        return value.toString().toLowerCase().includes(query);
+      });
+    }
+  });
+  createTableBody(filteredData);
+}

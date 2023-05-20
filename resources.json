@@ -1,0 +1,13 @@
+[
+  "codecov": {
+    "description": "a tool to see absolute coverage and coverage changes overlayed with your source code",
+    "url": "https://codecov.io",
+    "pricing": "https://about.codecov.io/pricing/",
+    "features": [
+        "Unlimited Public / Private Repositories",
+        "SAML Ready",
+        "Community Support",
+        "Integrates with [github], [gitlab] and [bitbucket]"
+    ]
+  }
+]
