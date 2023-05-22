@@ -1,12 +1,28 @@
-var jsonData = fetch("./resources.json")
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+// var jsonData = fetch("./resources.json")
+//   .then((response) => response.json())
+//   .then((json) => console.log(json));
 // Sample JSON data
 // var jsonData = [
 //   { Name: "John\nAdams", Age: 30, City: "New York" },
 //   { Name: "Jane", Age: 25, City: "London" },
 //   { Name: "Bob", Age: 35, City: "Paris" },
 // ];
+var jsonData = [
+  {
+    name: "codeconv",
+    description:
+      "a tool to see absolute coverage and coverage changes overlayed with your source code",
+    url: "https://codecov.io",
+    pricing: "https://about.codecov.io/pricing/",
+    features: [
+      "Unlimited Public / Private Repositories",
+      "SAML Ready",
+      "Community Support",
+      "Integrates with [github], [gitlab] and [bitbucket]",
+    ],
+    category: ["build", "code scan"],
+  },
+];
 
 window.onload = function () {
   // Create the table dynamically
@@ -38,9 +54,26 @@ window.onload = function () {
     data.forEach(function (rowData) {
       var row = document.createElement("tr");
       columns.forEach(function (column) {
-        var cell = document.createElement("td");
-        cell.textContent = rowData[column];
-        row.appendChild(cell);
+        if (column != "url") {
+          var cell = document.createElement("td");
+          if (column == "name") {
+            cell.innerHTML =
+              "<a href='" + rowData["url"] + "'>" + rowData[column] + "</a>";
+          } else if (column == "pricing") {
+            cell.innerHTML =
+              "<a href='" + rowData[column] + "'>" + column + "</a>";
+          } else if (column == "features" || column == "category") {
+            var features = "<ul>";
+            rowData[column].forEach(function (feature) {
+              features += "<li>" + feature + "</li>";
+            });
+            features += "</ul>";
+            cell.innerHTML = features;
+          } else {
+            cell.textContent = rowData[column];
+          }
+          row.appendChild(cell);
+        }
       });
       tbody.appendChild(row);
     });
@@ -55,10 +88,12 @@ window.onload = function () {
   // Create the column filter options
   var columnSelect = document.getElementById("columnSelect");
   columns.forEach(function (column) {
-    var option = document.createElement("option");
-    option.value = column;
-    option.textContent = column;
-    columnSelect.appendChild(option);
+    if (column != "url") {
+      var option = document.createElement("option");
+      option.value = column;
+      option.textContent = column;
+      columnSelect.appendChild(option);
+    }
   });
 
   // Filter the table based on user input
@@ -69,18 +104,18 @@ window.onload = function () {
     selectedColumn = columnSelect.value;
     filterTable();
   });
-};
 
-function filterTable() {
-  var query = filterInput.value.toLowerCase();
-  var filteredData = jsonData.filter(function (rowData) {
-    if (selectedColumn) {
-      return rowData[selectedColumn].toString().toLowerCase().includes(query);
-    } else {
-      return Object.values(rowData).some(function (value) {
-        return value.toString().toLowerCase().includes(query);
-      });
-    }
-  });
-  createTableBody(filteredData);
-}
+  function filterTable() {
+    var query = filterInput.value.toLowerCase();
+    var filteredData = jsonData.filter(function (rowData) {
+      if (selectedColumn) {
+        return rowData[selectedColumn].toString().toLowerCase().includes(query);
+      } else {
+        return Object.values(rowData).some(function (value) {
+          return value.toString().toLowerCase().includes(query);
+        });
+      }
+    });
+    createTableBody(filteredData);
+  }
+};
